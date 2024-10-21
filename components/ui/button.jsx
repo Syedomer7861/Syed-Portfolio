@@ -30,13 +30,19 @@ const buttonVariants = cva(
 
 const Button = React.forwardRef(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+    const Comp = asChild ? Slot : "a";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+       className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+        href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID" // Your Google Drive download link
+        download="Your_Resume.pdf" // Optional: To trigger the download
+        target="_blank" // Opens in new tab
+        rel="noopener noreferrer" // Security measure when using target="_blank"
+      >
+        Download Resume
+      </Comp>
     );
   }
 );
