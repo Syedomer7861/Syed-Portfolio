@@ -54,12 +54,17 @@ const Contact = () => {
         () => {
           console.log("SUCCESS!");
           form.current.reset(); // Clear the form fields after submission
+          setNotification({ type: "success", message: "Message sent successfully!" });
+          setIsSubmitting(false); // End submitting
         },
         (error) => {
           console.log("FAILED...", error.text);
+          setNotification({ type: "error", message: "Failed to send message." });
+          setIsSubmitting(false); // End submitting even on error
         }
       );
   };
+  
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -93,7 +98,7 @@ const Contact = () => {
                   name="user_email"
                 />
                 <Input
-                  type="phone"
+                  type="tel"
                   placeholder="Phone number"
                   name="user_phone"
                 />
