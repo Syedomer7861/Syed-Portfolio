@@ -24,7 +24,7 @@ const Home = () => {
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button href="https://www.instagram.com/syed_omer7861/"
+              <Button path="https://www.instagram.com/syed_omer7861/"
                 variant="outline"
                 size="lg"
                 className="uppercase flex items-center gap-2"
