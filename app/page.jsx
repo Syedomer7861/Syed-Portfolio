@@ -30,7 +30,7 @@ const Home = () => {
                 className="uppercase flex items-center gap-2"
               >
                 <span>Download CV</span>
-                <FiDownload className="text-xl" path="https://www.instagram.com/syed_omer7861/" />
+                <FiDownload className="text-xl" />
               </Button>
               <div className="mb-8 xl:mb-0">
                 <Social
