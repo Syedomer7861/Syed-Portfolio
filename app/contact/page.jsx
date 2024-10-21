@@ -53,6 +53,7 @@ const Contact = () => {
       .then(
         () => {
           console.log("SUCCESS!");
+          form.current.reset(); // Clear the form fields after submission
         },
         (error) => {
           console.log("FAILED...", error.text);
