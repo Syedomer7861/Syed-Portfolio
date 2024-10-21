@@ -1,4 +1,6 @@
 "use client";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,6 +39,23 @@ const info = [
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_ody1s39", "template_99n9s7n", form.current, {
+        publicKey: "-LWPTfdkhLPgCvbTU",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -58,9 +77,21 @@ const Contact = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firestname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" />
+                <Input
+                  type="firestname"
+                  placeholder="Firstname"
+                  name="user_name"
+                />
+                <Input
+                  type="lastname"
+                  placeholder="Lastname"
+                  name="user_name"
+                />
+                <Input
+                  type="email"
+                  placeholder="Email address"
+                  name="user_email"
+                />
                 <Input type="phone" placeholder="Phone number" />
               </div>
               {/* select */}
@@ -83,7 +114,13 @@ const Contact = () => {
                 placeholder="Type your message here."
               />
               {/* btn */}
-              <Button size="md" className="max-w-40">
+              <Button
+                onSubmit={sendEmail}
+                size="md"
+                className="max-w-40"
+                type="submit"
+                value="Send"
+              >
                 Send message
               </Button>
             </form>
