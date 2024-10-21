@@ -44,9 +44,12 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_ody1s39", "template_99n9s7n", form.current, {
-        publicKey: "-LWPTfdkhLPgCvbTU",
-      })
+      .sendForm(
+        "service_ody1s39",
+        "template_99n9s7n",
+        form.current,
+        "-LWPTfdkhLPgCvbTU"
+      )
       .then(
         () => {
           console.log("SUCCESS!");
@@ -69,7 +72,11 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px] ">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form
+              ref={form}
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              onSubmit={sendEmail}
+            >
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit
@@ -78,21 +85,25 @@ const Contact = () => {
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
-                  type="firestname"
+                  type="text"
                   placeholder="Firstname"
-                  name="user_name"
+                  name="user_firstname"
                 />
                 <Input
-                  type="lastname"
+                  type="text"
                   placeholder="Lastname"
-                  name="user_name"
+                  name="user_lastname"
                 />
                 <Input
                   type="email"
                   placeholder="Email address"
                   name="user_email"
                 />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  type="phone"
+                  placeholder="Phone number"
+                  name="user_phone"
+                />
               </div>
               {/* select */}
               <Select>
@@ -110,17 +121,11 @@ const Contact = () => {
               </Select>
               {/* textarea */}
               <Textarea
-                className="h-[200px"
+                className="h-[200px]"
                 placeholder="Type your message here."
               />
               {/* btn */}
-              <Button
-                onSubmit={sendEmail}
-                size="md"
-                className="max-w-40"
-                type="submit"
-                value="Send"
-              >
+              <Button size="md" className="max-w-40">
                 Send message
               </Button>
             </form>
