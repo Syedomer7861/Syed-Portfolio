@@ -84,16 +84,8 @@ const Contact = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input
-                  type="text"
-                  placeholder="Firstname"
-                  name="user_firstname"
-                />
-                <Input
-                  type="text"
-                  placeholder="Lastname"
-                  name="user_lastname"
-                />
+                <Input type="text" placeholder="Firstname" name="name" />
+                <Input type="text" placeholder="Lastname" name="name" />
                 <Input
                   type="email"
                   placeholder="Email address"
@@ -123,6 +115,7 @@ const Contact = () => {
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here."
+                name="message"
               />
               {/* btn */}
               <Button size="md" className="max-w-40">
