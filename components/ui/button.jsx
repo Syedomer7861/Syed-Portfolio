@@ -36,12 +36,6 @@ const Button = React.forwardRef(
        className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-        href="https://drive.google.com/file/d/1G8qyvZNwTA4j7kqAH61EaHJOgDcQiGx8/view?pli=1" // Your Google Drive download link
-        download="Your_Resume.pdf" // Optional: To trigger the download
-        target="_blank" // Opens in new tab
-        rel="noopener noreferrer" // Security measure when using target="_blank"
-      >
-        Download Resume
       </Comp>
     );
   }
