@@ -24,12 +24,12 @@ const Home = () => {
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
+              <Button href="https://www.instagram.com/syed_omer7861/"
                 variant="outline"
                 size="lg"
                 className="uppercase flex items-center gap-2"
               >
-                <span href="https://www.instagram.com/syed_omer7861/">Download CV</span>
+                <span>Download CV</span>
                 <FiDownload className="text-xl" />
               </Button>
               <div className="mb-8 xl:mb-0">
