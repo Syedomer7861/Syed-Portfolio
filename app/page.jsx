@@ -19,19 +19,28 @@ const Home = () => {
               <span className="text-accent">Syed Omer Farrukh</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I excel at crefting elegant digital experiences and I am
-              proficient in various programming lanaguages and technologies.
+              I specialize in creating seamless digital experiences, leveraging
+              my expertise in HTML5, CSS3, and JavaScript to deliver clean,
+              efficient, and user-centric solutions.
             </p>
             {/* btn and socials */}
+
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button 
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
+              <a
+                href="https://drive.google.com/file/d/1G8qyvZNwTA4j7kqAH61EaHJOgDcQiGx8/view?usp=drivesdk"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
-              </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="uppercase flex items-center gap-2"
+                >
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+                </Button>
+              </a>
+
               <div className="mb-8 xl:mb-0">
                 <Social
                   containerStyles="flex gap-6"

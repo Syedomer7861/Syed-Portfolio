@@ -12,12 +12,8 @@ const stats = [
     text: "Projects completed",
   },
   {
-    num: 4,
+    num: 3,
     text: "Technologies mastered",
-  },
-  {
-    num: 500,
-    text: "Code commits",
   },
 ];
 
@@ -29,7 +25,7 @@ const Stats = () => {
           {stats.map((item, index) => {
             return (
               <div
-                className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
+                className="flex-1 flex gap-4 items-center justify-center xl:justify-start p-[30px]"
                 key={index}
               >
                 <CountUp

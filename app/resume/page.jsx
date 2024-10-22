@@ -1,13 +1,21 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaFigma } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiAdobephotoshop } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiNextdotjs,
+  SiAdobephotoshop,
+  SiMicrosoftexcel,
+  SiMicrosoftword,
+  SiMicrosoftpowerpoint,
+  SiMicrosoftaccess,
+} from "react-icons/si";
 
 // about data
 const about = {
   title: "About me",
   description:
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, in.",
+    "Hi! I'm a front-end developer skilled in HTML5, CSS3, and JavaScript. I focus on creating visually appealing and user-friendly digital experiences, delivering high-quality work through clean, responsive code. I'm always eager to learn and stay updated with the latest trends to provide innovative solutions.",
   info: [
     {
       fieldName: "Name",
@@ -45,42 +53,32 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, laborum?",
+    "I possess a diverse background in customer support, quality analysis, and accounting, which has refined my problem-solving and communication skills. This multifaceted experience enables me to understand user needs comprehensively and deliver effective, user-centered solutions in my role as a front-end developer.",
   items: [
     {
-      company: "TechZone solutions pvt ltd",
-      position: "Full Stack Developer",
-      duration: "2022 - Present",
+      company: "Shadab Restaurant LLC | Dubai, UAE",
+      position: "Accountant cum Cashier",
+      duration: "Dec 2020 - Present",
     },
     {
-      company: "Web design studio pvt ltd",
-      position: "Front-End Developer",
-      duration: "2020 - 2022",
+      company: "HRH NEXT Pvt Ltd | India",
+      position: "Customer Support Executive",
+      duration: "Jan 2019 - Sep 2020",
+    },
+    {
+      company: "Spectrum and Wireless Technologies | India",
+      position: "Quality Analyst",
+      duration: "July 2017 - Dec 2018",
+    },
+    {
+      company: "MMH Computers | India",
+      position: "MS Office Instructor",
+      duration: "2015 - 2017 (Part-Time)",
     },
     {
       company: "Fiverr",
       position: "Freelancer Web Developer",
       duration: "2017 - Present",
-    },
-    {
-      company: "MMH Computers",
-      position: "Teaching Assistant",
-      duration: "2015 - 2018",
-    },
-    {
-      company: "MMH Computers",
-      position: "Teaching Assistant",
-      duration: "2015 - 2018",
-    },
-    {
-      company: "MMH Computers",
-      position: "Teaching Assistant",
-      duration: "2015 - 2018",
-    },
-    {
-      company: "MMH Computers",
-      position: "Teaching Assistant",
-      duration: "2015 - 2018",
     },
   ],
 };
@@ -90,15 +88,17 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, laborum?",
+    "My academic background includes a Bachelor's degree in Computer Applications, along with a foundation in commerce and technology. This blend of education has provided me with both technical expertise and a strong understanding of business principles.",
   items: [
     {
-      institution: "Karnata college",
-      degree: "B.com Computers",
+      institution:
+        "Institute Of Basic And Vocational Education | govt. of karnataka",
+      degree: "B.com Computers Application",
       duration: "2020",
     },
     {
-      institution: "Karnata college",
+      institution:
+        "Institute Of Basic And Vocational Education | govt. of karnataka",
       degree: "CEC",
       duration: "2017",
     },
@@ -107,11 +107,6 @@ const education = {
       degree: "SSC",
       duration: "2015",
     },
-    {
-      institution: "Codewithharry",
-      degree: "Full Stack development",
-      duration: "2018",
-    },
   ],
 };
 
@@ -119,7 +114,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, inventore!",
+    "My skill set includes a strong foundation in front-end development, with expertise in HTML5, CSS3, and JavaScript. I am proficient in creating responsive, user-friendly websites that deliver seamless digital experiences. Additionally, I have experience in UI/UX design, focusing on creating intuitive interfaces, as well as logo design and branding. I also have a solid understanding of SEO principles, optimizing websites to enhance search engine visibility and improve overall performance.",
   skilllist: [
     {
       icon: <FaHtml5 />,
@@ -138,12 +133,24 @@ const skills = {
       name: "figma",
     },
     {
-      icon: <SiTailwindcss />,
-      name: "tailwind.css",
-    },
-    {
       icon: <SiAdobephotoshop />,
       name: "adobe photoshop",
+    },
+    {
+      icon: <SiMicrosoftexcel />,
+      name: "MS Excel",
+    },
+    {
+      icon: <SiMicrosoftword />,
+      name: "MS Word",
+    },
+    {
+      icon: <SiMicrosoftpowerpoint />,
+      name: "MS PowerPoint",
+    },
+    {
+      icon: <SiMicrosoftaccess />,
+      name: "MS Access",
     },
   ],
 };
@@ -287,12 +294,19 @@ const Resume = () => {
             >
               <div className="flex flex-col gap-[30px]">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px]
-                mx-auto xl:mx-0">
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+                <ul
+                  className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px]
+                mx-auto xl:mx-0"
+                >
                   {about.info.map((item, index) => {
                     return (
-                      <li key={index} className="flex items-center justify-center xl:justify-start gap-4">
+                      <li
+                        key={index}
+                        className="flex items-center justify-center xl:justify-start gap-4"
+                      >
                         <span className="text-white/60 ">{item.fieldName}</span>
                         <span className="text-xl">{item.fieldValue}</span>
                       </li>

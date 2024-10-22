@@ -8,29 +8,29 @@ const services = [
     num: "01",
     title: "Web Development",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam similique odio amet eligendi? neque.",
-    href: "",
+      "I build responsive and dynamic websites that not only look great but also function seamlessly across all devices. Utilizing the latest technologies and frameworks, I ensure a smooth user experience while adhering to best coding practices.",
+    href: "/contact",
   },
   {
     num: "02",
     title: "UI/UX Design",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam similique odio amet eligendi? neque.",
-    href: "",
+      "I create intuitive user interfaces and engaging user experiences that enhance interaction and satisfaction. By focusing on user research and design principles, I craft solutions that meet the needs of users and drive business goals.",
+    href: "/contact",
   },
   {
     num: "03",
     title: "Logo Design",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam similique odio amet eligendi? neque.",
-    href: "",
+      "I design unique and memorable logos that capture the essence of your brand. Through a thoughtful process of research and creativity, I ensure that each logo communicates your brand's identity and resonates with your target audience.",
+    href: "/contact",
   },
   {
     num: "04",
     title: "SEO",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam similique odio amet eligendi? neque.",
-    href: "",
+      "I implement effective SEO strategies to improve your website's visibility and ranking on search engines. By optimizing content and utilizing keyword research, I help attract organic traffic and enhance your online presence.",
+    href: "/contact",
   },
 ];
 

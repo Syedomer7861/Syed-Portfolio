@@ -27,12 +27,12 @@ const info = [
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "Youremail@gmail.com",
+    description: "farrukhmehdi10@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description: "Code corner, Tech Town 13579",
+    description: "Dubai, UAE",
   },
 ];
 
