@@ -16,9 +16,9 @@ const Home = () => {
             <span className="text-xl">Front-end Developer</span>
             <h1 className="h1 mb-6 ">
               Hello I am <br />
-              <span className="text-accent">Syed Omer Farrukh</span>
+              <span className="text-neon">Syed Omer Farrukh</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
+            <p className="max-w-[500px] mb-9 text-accent/80">
               I specialize in creating seamless digital experiences, leveraging
               my expertise in HTML5, CSS3, and JavaScript to deliver clean,
               efficient, and user-centric solutions.

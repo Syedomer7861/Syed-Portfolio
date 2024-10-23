@@ -22,11 +22,12 @@ module.exports = {
 
 
   		colors: {
-  			primary: "#1a1a1a",
+  			primary: "#bae2db",
 			accent: {
-				DEFAULT: "#78f591",
-				hover: "#00e187",
+				DEFAULT: "#1a1a1a",
+				hover: "#383434",
 			},
+			neon: "#da4e4e"
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

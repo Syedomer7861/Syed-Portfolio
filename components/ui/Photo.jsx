@@ -43,7 +43,7 @@ const Photo = () => {
             cx="253"
             cy="253"
             r="250"
-            stroke="#00ff99"
+            stroke="black" // adjust the color of circle
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -53,7 +53,7 @@ const Photo = () => {
               rotate: [120, 360],
             }}
             transition={{
-              duration: 20,
+              duration: 10,
               repeat: Infinity,
               repeatType: "reverse",
             }}

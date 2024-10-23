@@ -28,16 +28,28 @@ const links = [
   },
 ];
 
+import { useState, useEffect } from "react";
+
 const MobileNav = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close the mobile nav when the route changes
+  useEffect(() => {
+    setIsOpen(false); // Close the nav whenever the pathname changes
+  }, [pathname]);
+
   return (
-    <Sheet>
-      <SheetTrigger className="flex justify-center items-center">
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <SheetTrigger
+        className="flex justify-center items-center"
+        onClick={() => setIsOpen(true)} // Open the nav when the menu icon is clicked
+      >
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         {/* logo */}
-        <div className="mt-32 mb-4 text-center text-2xl">
+        <div className="mt-32 mb-4 text-center text-2xl text-white">
           <Link href="/">
             <h1 className="text-4xl font-semibold">
               Syed<span className="text-accent">.</span>
@@ -46,20 +58,19 @@ const MobileNav = () => {
         </div>
         {/* Nav */}
         <nav className="flex flex-col justify-center items-center gap-8">
-          {links.map((link, index) => {
-            return (
-              <Link
-                href={link.path}
-                key={index}
-                className={`${
-                  link.path === pathname &&
-                  "text-accent border-b-2 border-accent"
-                }text-xl capitalize hover:text-accent transition-all`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
+          {links.map((link, index) => (
+            <Link
+              href={link.path}
+              key={index}
+              className={`${
+                link.path === pathname &&
+                "text-accent border-b-2 border-neon"
+              } text-xl capitalize hover:text-accent transition-all`}
+              onClick={() => setIsOpen(false)} // Close the nav on clicking a link
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
       </SheetContent>
     </Sheet>

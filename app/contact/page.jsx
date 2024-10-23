@@ -1,47 +1,57 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const info = [
   {
-    icon: <FaPhoneAlt />,
+    icon: <FaPhoneAlt className="text-neon-blue animate-pulse" />,
     title: "Phone",
-    description: "(+971) 123 456 789",
+    description: <a href="tel:+971566786201" className="hover:underline">(+971) 566 786 201 </a>,
   },
   {
-    icon: <FaEnvelope />,
+    icon: <FaEnvelope className="text-neon-purple animate-spin-slow" />,
     title: "Email",
-    description: "farrukhmehdi10@gmail.com",
+    description: <a href="mailto:syedfarrukh55@gmail.com" className="hover:underline">syedfarrukh55@gmail.com</a>,
   },
   {
-    icon: <FaMapMarkerAlt />,
+    icon: <FaMapMarkerAlt className="text-neon-pink animate-bounce" />,
     title: "Address",
     description: "Dubai, UAE",
   },
 ];
 
-import { motion } from "framer-motion";
-
 const Contact = () => {
   const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState(null);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
   const sendEmail = (e) => {
     e.preventDefault();
+
+    const formData = new FormData(form.current);
+    const userName = formData.get("user_name");
+    const userEmail = formData.get("user_email");
+    const userPhone = formData.get("user_phone");
+    const message = formData.get("message");
+
+    if (!userName || !userEmail || !userPhone || !message) {
+      setNotification({
+        type: "error",
+        message: "Please fill in all required fields.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
 
     emailjs
       .sendForm(
@@ -53,102 +63,125 @@ const Contact = () => {
       .then(
         () => {
           console.log("SUCCESS!");
-          form.current.reset(); // Clear the form fields after submission
-          setNotification({ type: "success", message: "Message sent successfully!" });
-          setIsSubmitting(false); // End submitting
+          form.current.reset();
+          setShowSuccessPopup(true);
+          setNotification(null);
+          setTimeout(() => {
+            setShowSuccessPopup(false);
+          }, 3000);
+          setIsSubmitting(false);
         },
         (error) => {
           console.log("FAILED...", error.text);
-          setNotification({ type: "error", message: "Failed to send message." });
-          setIsSubmitting(false); // End submitting even on error
+          setNotification({
+            type: "error",
+            message: "Failed to send message.",
+          });
+          setIsSubmitting(false);
         }
       );
   };
-  
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-      }}
+      animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
       className="py-6"
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[30px] ">
-          {/* form */}
+        <div className="flex flex-col xl:flex-row gap-[30px]">
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form
-              ref={form}
-              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
-              onSubmit={sendEmail}
-            >
-              <h3 className="text-4xl text-accent">Let's work together</h3>
+            <form ref={form} className="flex flex-col gap-6 p-10 bg-black rounded-xl" onSubmit={sendEmail}>
+              <h3 className="text-4xl text-white">Let's work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit
-                illo quaerat blanditiis commodi doloribus.
+                Have a project in mind or need help bringing your ideas to life? Let's collaborate to create something amazing together. I'm always excited to take on new challenges and deliver impactful solutions!
               </p>
-              {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="text" placeholder="Firstname" name="user_name" />
-                <Input type="text" placeholder="Lastname" name="user_name" />
-                <Input
-                  type="email"
-                  placeholder="Email address"
-                  name="user_email"
-                />
-                <Input
-                  type="tel"
-                  placeholder="Phone number"
-                  name="user_phone"
-                />
+                <Input type="text" placeholder="Firstname" name="user_name" required />
+                <Input type="text" placeholder="Lastname" name="user_lastname" required />
+                <Input type="email" placeholder="Email address" name="user_email" required />
+                <div className="relative">
+                  <PhoneInput
+                    country={"us"}
+                    inputProps={{
+                      name: "user_phone",
+                      required: true,
+                      autoFocus: true,
+                    }}
+                    inputStyle={{
+                      margin:'25px',
+                      width: "90%", // Set to 100% for responsiveness
+                      padding: "20px",
+                      borderRadius: "10px",
+                      backgroundColor: "#bae2db",
+                      border: "1px solid #555",
+                      color: "#1a1a1a",
+                    }}
+                    dropdownStyle={{
+                      backgroundColor: "#bae2db",
+                      border: "1px solid #555",
+                      color: "#1a1a1a",
+                    }}
+                    buttonStyle={{
+                      backgroundColor: "#bae2db",
+                    }}
+                  />
+                </div>
               </div>
-              {/* select */}
               <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="select a service" />
+                <SelectTrigger className="w-full text-accent font-bold rounded-xl">
+                  <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectGroup>
+                  <SelectGroup className="text-accent">
                     <SelectLabel>Select a service</SelectLabel>
                     <SelectItem value="est">Web Development</SelectItem>
                     <SelectItem value="cst">UI/UX Design</SelectItem>
                     <SelectItem value="mst">Logo Design</SelectItem>
+                    <SelectItem value="mst">SEO</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              {/* textarea */}
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here."
                 name="message"
+                required
               />
-              {/* btn */}
               <Button size="md" className="max-w-40">
-                Send message
+                {isSubmitting ? "Sending..." : "Send message"}
               </Button>
             </form>
           </div>
-          {/* info */}
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
-              {info.map((item, index) => {
-                return (
-                  <li key={index} className="flex items-center gap-6">
-                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
-                      <div className="text-[28px]">{item.icon}</div>
-                    </div>
-                    <div className="flex-1 ">
-                      <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
-                    </div>
-                  </li>
-                );
-              })}
+              {info.map((item, index) => (
+                <li key={index} className="flex items-center gap-6">
+                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-black text-white rounded-xl flex items-center justify-center">
+                    <div className="text-[28px]">{item.icon}</div>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-black/60">{item.title}</p>
+                    <h3 className="text-xl">{item.description}</h3>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
+      {notification && (
+        <p className={notification.type === "success" ? "text-green-500" : "text-red-500"}>
+          {notification.message}
+        </p>
+      )}
+      {showSuccessPopup && (
+        <div className="fixed bottom-4 right-4 p-4">
+          <div className="bg-green-500 text-white p-3 rounded-lg shadow-lg">
+            Message sent successfully!
+          </div>
+        </div>
+      )}
     </motion.section>
   );
 };
