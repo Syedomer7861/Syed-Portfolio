@@ -87,7 +87,7 @@ const Work = () => {
               {project.category} project
             </h2>
             {/* project description */}
-            <p className="text-accent/60 p-4">{project.description}</p>
+            <p className="text-accent/80 p-4">{project.description}</p>
             {/* stack */}
             <ul className="flex gap-4 p-4">
               {project.stack.map((item, index) => {
@@ -108,8 +108,8 @@ const Work = () => {
               <Link href={project.github}>
                 <TooltipProvider delayDuration={100}>
                   <Tooltip>
-                    <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-accent/30 flex justify-center items-center group">
-                      <BsArrowUpRight className="text-white text-3xl group-hover:text-accent " />
+                    <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-accent/40 flex justify-center items-center group">
+                      <BsArrowUpRight className="text-white text-3xl group-hover:text-primary" />
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>Live project </p>
@@ -121,8 +121,8 @@ const Work = () => {
               <Link href={project.live}>
                 <TooltipProvider delayDuration={100}>
                   <Tooltip>
-                    <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-accent/30 flex justify-center items-center group">
-                      <BsGithub className="text-white text-3xl group-hover:text-accent " />
+                    <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-accent/40 flex justify-center items-center group">
+                      <BsGithub className="text-white text-3xl group-hover:text-primary" />
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>Github repository</p>
@@ -161,7 +161,7 @@ const Work = () => {
               {/* slider button */}
               <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-black text-primary hover:bg-accent-hover hover:text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center trenasition-all rounded-[50%] border-[2px] border-white"
+                btnStyles="bg-black text-accent hover:bg-accent hover:text-neon text-[22px] w-[44px] h-[44px] flex justify-center items-center trenasition-all rounded-[50%] border-[2px] border-white"
               />
             </Swiper>
           </div>

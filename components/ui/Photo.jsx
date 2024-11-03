@@ -3,6 +3,7 @@
 import { easeIn, motion } from "framer-motion";
 import Image from "next/image";
 
+import Spline from "@splinetool/react-spline";
 const Photo = () => {
   return (
     <div className="w-full h-full relative">
@@ -22,14 +23,19 @@ const Photo = () => {
           }}
           className="w-[298px] h-[250px] xl:w-[498px] xl:h-[398px] mix-blend-lighten absolute"
         >
-          <Image
+          {/* <Image
             src="" // add your hero image here
             priority
             quality={100}
             fill
             alt=""
             className="object-contain"
+          /> */}
+          <Spline className="mt-[40px]"
+            scene="https://prod.spline.design/2OCbT1T9STkcVTCE/scene.splinecode"
           />
+          <div className="absolute bottom-[-25px] right-[10px] bg-primary w-[150px] h-[50px] pointer-events-none"></div>
+
         </motion.div>
 
         {/* circle */}
@@ -43,7 +49,7 @@ const Photo = () => {
             cx="253"
             cy="253"
             r="250"
-            stroke="black" // adjust the color of circle
+            stroke="white" // adjust the color of circle
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
