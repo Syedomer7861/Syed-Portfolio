@@ -30,7 +30,7 @@ const Home = () => {
 
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a
-                href="https://drive.google.com/file/d/1G8qyvZNwTA4j7kqAH61EaHJOgDcQiGx8/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1XVIpSe0-vwALaxa0Tdrhg_6k1wC65xuM/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
