@@ -23,7 +23,11 @@ const about = {
     },
     {
       fieldName: "Phone",
-      fieldValue: <a href="tel:+971566786201" className="hover:underline">(+971) 566 786 201 </a>,
+      fieldValue: (
+        <a href="tel:+971566786201" className="hover:underline">
+          (+971) 566 786 201{" "}
+        </a>
+      ),
     },
     {
       fieldName: "Experience",
@@ -31,7 +35,11 @@ const about = {
     },
     {
       fieldName: "Email",
-      fieldValue: <a href="mailto:syedfarrukh55@gmail.com" className="hover:underline">syedfarrukh55@gmail.com</a>,
+      fieldValue: (
+        <a href="mailto:syedfarrukh55@gmail.com" className="hover:underline">
+          syedfarrukh55@gmail.com
+        </a>
+      ),
     },
     {
       fieldName: "Nationality",
@@ -185,25 +193,45 @@ const Resume = () => {
       }}
       className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto text-accent">
         <Tabs
           defaultValue="experience"
           className="flex flex-col xl:flex-row gap-[60px]"
         >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 ">
-            <TabsTrigger value="experience" className="hover:bg-black/40 hover:text-white">Experience</TabsTrigger>
-            <TabsTrigger value="education" className="hover:bg-black/40 hover:text-white">Education</TabsTrigger>
-            <TabsTrigger value="skills" className="hover:bg-black/40 hover:text-white">Skills</TabsTrigger>
-            <TabsTrigger value="about" className="hover:bg-black/40 hover:text-white">About me</TabsTrigger>
+          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+            <TabsTrigger
+              value="experience"
+              className="text-accent border-accent hover:bg-white/10 hover:text-white"
+            >
+              Experience
+            </TabsTrigger>
+            <TabsTrigger
+              value="education"
+              className="text-accent border-accent hover:bg-white/10 hover:text-white"
+            >
+              Education
+            </TabsTrigger>
+            <TabsTrigger
+              value="skills"
+              className="text-accent border-accent hover:bg-white/10 hover:text-white"
+            >
+              Skills
+            </TabsTrigger>
+            <TabsTrigger
+              value="about"
+              className="text-accent border-accent hover:bg-white/10 hover:text-white"
+            >
+              About me
+            </TabsTrigger>
           </TabsList>
 
           {/* content */}
           <div className="min-h-[70vh] w-full">
             {/* experience */}
             <TabsContent value="experience" className="w-full">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left text-accent">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className="max-w-[600px] text-black/80 mx-auto xl:mx-0">
+                <p className="max-w-[600px] text-accent/80 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
                 <ScrollArea className="h-[400px]">
@@ -212,16 +240,16 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-black/90 h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                          className="bg-accent h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-primary">{item.duration}</span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left text-white">
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left text-primary">
                             {item.position}
                           </h3>
                           <div className="flex items-center gap-3">
                             {/* dot */}
-                            <span className="w-[6px] h-[6px] rounded-full bg-primary"></span>
-                            <p className="text-white/60 ">{item.company}</p>
+                            <span className="w-[6px] h-[6px] rounded-full bg-neon"></span>
+                            <p className="text-primary/60 ">{item.company}</p>
                           </div>
                         </li>
                       );
@@ -244,16 +272,16 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-black/90 h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                          className="bg-accent h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-primary">{item.duration}</span>
-                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left text-white">
+                          <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left text-primary">
                             {item.degree}
                           </h3>
                           <div className="flex items-center gap-3">
                             {/* dot */}
-                            <span className="w-[6px] h-[6px] rounded-full bg-primary"></span>
-                            <p className="text-white/60 ">{item.institution}</p>
+                            <span className="w-[6px] h-[6px] rounded-full bg-neon"></span>
+                            <p className="text-primary/60 ">{item.institution}</p>
                           </div>
                         </li>
                       );
@@ -278,8 +306,8 @@ const Resume = () => {
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-black/90 rounded-xl flex justify-center items-center group">
-                              <div className="text-6xl group-hover:text-primary text-white transition-all duration-300">
+                            <TooltipTrigger className="w-full h-[150px] bg-accent rounded-xl flex justify-center items-center group">
+                              <div className="text-6xl group-hover:text-primary text-primary transition-all duration-300">
                                 {skill.icon}
                               </div>
                             </TooltipTrigger>
@@ -315,7 +343,9 @@ const Resume = () => {
                         key={index}
                         className="flex items-center justify-center xl:justify-start gap-4"
                       >
-                        <span className="text-white text-xl ">{item.fieldName}</span>
+                        <span className="text-white text-xl ">
+                          {item.fieldName}
+                        </span>
                         <span className="text-xl">{item.fieldValue}</span>
                       </li>
                     );
