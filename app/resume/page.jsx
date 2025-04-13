@@ -129,6 +129,14 @@ const skills = {
       name: "javascript",
     },
     {
+      icon: <SiTailwindcss />,
+      name: "tailwind css",
+    },
+    {
+      icon: <SiNextdotjs />,
+      name: "next js",
+    },
+    {
       icon: <FaFigma />,
       name: "figma",
     },
