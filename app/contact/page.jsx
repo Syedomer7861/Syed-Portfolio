@@ -23,8 +23,8 @@ const info = [
     icon: <FaPhoneAlt className="text-neon-blue animate-pulse" />,
     title: "Phone",
     description: (
-      <a href="tel:+971566786201" className="hover:underline">
-        (+971) 566 786 201{" "}
+      <a href="tel:+916302242108" className="hover:underline">
+        (+91) 630 224 2108{" "}
       </a>
     ),
   },
@@ -40,7 +40,7 @@ const info = [
   {
     icon: <FaMapMarkerAlt className="text-neon-pink animate-bounce" />,
     title: "Address",
-    description: "Dubai, UAE",
+    description: "India",
   },
 ];
 
